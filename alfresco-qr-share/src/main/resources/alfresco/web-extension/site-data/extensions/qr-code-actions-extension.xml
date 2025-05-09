@@ -1,0 +1,25 @@
+<extension>
+    <modules>
+        <module>
+            <id>QR Code Action</id>
+            <version>1.0</version>
+            <auto-deploy>true</auto-deploy>
+            <configurations>
+                <config evaluator="string-compare" condition="DocLibActions">
+                    <actions>
+                        <action id="barcodeQRCode-pdf" type="javascript" label="alfresco.doclib.action.barcodeQRCodePdf.label" icon="pdf">
+                            <param name="function">onActionFormDialog</param>
+                            <param name="itemKind">action</param>
+                            <param name="itemId">barcodeQRCode-pdf</param>
+                            <param name="mode">create</param>
+                            <param name="destination">{node.nodeRef}</param>
+                            <param name="successMessage">alfresco.doclib.action.barcodeQRCodePdf.msg.success</param>
+                            <param name="failureMessage">alfresco.doclib.action.barcodeQRCodePdf.msg.failure</param>
+                            <evaluator>alfresco.barcodeQRCodePdf.evaluator.checkPDFFileType</evaluator>
+                        </action>
+                    </actions>
+                </config>
+            </configurations>
+        </module>
+    </modules>
+</extension>
