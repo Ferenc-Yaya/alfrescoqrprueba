@@ -37,7 +37,7 @@
         <property name="nodeLocatorService" ref="nodeLocatorService" />
     </bean>
 
-    <bean id="barcodeQRCode-pdf" class="pe.dataservices.platformsample.actions.BarcodeQRCodePdfActionExecuter" parent="action-executer">
+    <bean id="barcodeQRCodePdf" class="pe.dataservices.platformsample.actions.BarcodeQRCodePdfActionExecuter" parent="action-executer">
         <property name="serviceRegistry">
             <ref bean="ServiceRegistry" />
         </property>

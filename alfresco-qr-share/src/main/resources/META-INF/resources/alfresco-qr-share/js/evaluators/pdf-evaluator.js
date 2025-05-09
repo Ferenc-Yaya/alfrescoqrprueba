@@ -1,0 +1,1 @@
+'use strict';function checkPDFFileType(a){return"application/pdf"===a.node.mimetype};

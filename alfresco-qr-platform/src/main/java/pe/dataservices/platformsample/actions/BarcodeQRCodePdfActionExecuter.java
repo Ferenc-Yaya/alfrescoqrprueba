@@ -46,7 +46,29 @@ public class BarcodeQRCodePdfActionExecuter extends ActionExecuterAbstractBase {
 
     @Override
     protected void executeImpl(Action action, NodeRef actionedUponNodeRef) {
-        logger.debug("Page No " + action.getParameterValue(PARAM_PAGE_NO));
+        // Obtener el número de página o usar un valor predeterminado si no se proporciona
+        String pageNoStr = (String) action.getParameterValue(PARAM_PAGE_NO);
+        int pageNo = 1; // Valor predeterminado: primera página
+
+        if (pageNoStr != null && !pageNoStr.isEmpty()) {
+            try {
+                pageNo = Integer.parseInt(pageNoStr);
+                logger.debug("Using provided page number: " + pageNo);
+            } catch (NumberFormatException e) {
+                logger.warn("Invalid page number format: " + pageNoStr + ". Using default page 1.");
+            }
+        } else {
+            logger.debug("No page number provided. Using default page 1.");
+        }
+
+        // Verificar si el nodo es un PDF
+        ContentReader reader = serviceRegistry.getContentService().getReader(actionedUponNodeRef, ContentModel.PROP_CONTENT);
+        if (reader == null || !reader.getMimetype().equals("application/pdf")) {
+            // No es un PDF, no hacer nada
+            logger.warn("Node is not a PDF, skipping QR code generation");
+            return;
+        }
+
         Map<QName, Serializable> props = serviceRegistry.getNodeService().getProperties(actionedUponNodeRef);
         String qrCodeString = new String();
         for (Entry<QName, Serializable> entry : props.entrySet()){
@@ -54,9 +76,7 @@ public class BarcodeQRCodePdfActionExecuter extends ActionExecuterAbstractBase {
         }
         ContentWriter writer = serviceRegistry.getContentService().getWriter(actionedUponNodeRef,
                 ContentModel.PROP_CONTENT, true);
-        ContentReader reader = serviceRegistry.getContentService().getReader(actionedUponNodeRef,
-                ContentModel.PROP_CONTENT);
-        int pageNo = Integer.parseInt((String) action.getParameterValue(PARAM_PAGE_NO));
+
         try {
             PdfReader pdfReader = new PdfReader(reader.getContentInputStream());
             PdfStamper stamper = new PdfStamper(pdfReader, writer.getContentOutputStream());
