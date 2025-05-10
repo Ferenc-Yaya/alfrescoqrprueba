@@ -5,37 +5,40 @@
             <version>1.0</version>
             <auto-deploy>true</auto-deploy>
             <configurations>
+
                 <config evaluator="string-compare" condition="DocLibActions">
                     <actions>
-                        <action id="document-barcodeQRCodePdf"
-                                icon="document-barcodeQRCodePdf"
+
+                        <action id="document-barcodeQRCode"
                                 type="javascript"
-                                label="alfresco.doclib.action.barcodeQRCodePdf.label">
-                            <param name="function">onActionSimpleRepoAction</param>
+                                label="alfresco.doclib.action.barcodeQRCodePdf.label"
+                                icon="barcode_scanner">
+                        <param name="function">onActionSimpleRepoAction</param>
                             <param name="action">barcodeQRCodePdf</param>
                             <param name="page-no">1</param>
                             <param name="successMessage">alfresco.doclib.action.barcodeQRCodePdf.msg.success</param>
                             <param name="failureMessage">alfresco.doclib.action.barcodeQRCodePdf.msg.failure</param>
+                            <evaluator>alfresco.barcodeQRCodePdf.evaluator.checkPDFFileType</evaluator>
                         </action>
                     </actions>
                 </config>
+
+
                 <config evaluator="string-compare" condition="DocLibActions">
                     <actionGroups>
                         <actionGroup id="document-browse">
-                            <action index="400" id="document-barcodeQRCodePdf" />
+                            <action index="400" id="document-barcodeQRCode" />
                         </actionGroup>
                         <actionGroup id="document-details">
-                            <action index="400" id="document-barcodeQRCodePdf" />
+                            <action index="400" id="document-barcodeQRCode" />
+                        </actionGroup>
+                        <actionGroup id="document-selected">
+                            <action index="400" id="document-barcodeQRCode" />
                         </actionGroup>
                     </actionGroups>
                 </config>
 
-                <!-- Add dependency to load our custom CSS -->
-                <config evaluator="string-compare" condition="DocLibCustom">
-                    <dependencies>
-                        <css src="alfresco-qr-share/components/documentlibrary/actions/custom-actions.css" />
-                    </dependencies>
-                </config>
+
             </configurations>
         </module>
     </modules>
