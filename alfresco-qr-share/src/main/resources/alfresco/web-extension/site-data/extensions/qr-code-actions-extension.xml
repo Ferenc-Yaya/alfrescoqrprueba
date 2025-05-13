@@ -20,6 +20,15 @@
                             <param name="failureMessage">alfresco.doclib.action.barcodeQRCodePdf.msg.failure</param>
                             <evaluator>alfresco.barcodeQRCodePdf.evaluator.checkPDFFileType</evaluator>
                         </action>
+                        <action id="document-createMetadataPdf"
+                                type="javascript"
+                                label="alfresco.doclib.action.createMetadataPdf.label"
+                                icon="default">
+                            <param name="function">onActionSimpleRepoAction</param>
+                            <param name="action">createMetadataPdf</param>
+                            <param name="successMessage">alfresco.doclib.action.createMetadataPdf.msg.success</param>
+                            <param name="failureMessage">alfresco.doclib.action.createMetadataPdf.msg.failure</param>
+                        </action>
                     </actions>
                 </config>
 
@@ -34,6 +43,12 @@
                         </actionGroup>
                         <actionGroup id="document-selected">
                             <action index="400" id="document-barcodeQRCode" />
+                        </actionGroup>
+                        <actionGroup id="document-browse">
+                            <action index="410" id="document-createMetadataPdf" />
+                        </actionGroup>
+                        <actionGroup id="document-details">
+                            <action index="410" id="document-createMetadataPdf" />
                         </actionGroup>
                     </actionGroups>
                 </config>

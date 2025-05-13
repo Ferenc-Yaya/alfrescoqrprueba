@@ -8,4 +8,9 @@
             <ref bean="ServiceRegistry" />
         </property>
     </bean>
+    <bean id="createMetadataPdf" class="pe.dataservices.platformsample.actions.CreateMetadataPdfActionExecuter" parent="action-executer">
+        <property name="serviceRegistry">
+            <ref bean="ServiceRegistry" />
+        </property>
+    </bean>
 </beans>
