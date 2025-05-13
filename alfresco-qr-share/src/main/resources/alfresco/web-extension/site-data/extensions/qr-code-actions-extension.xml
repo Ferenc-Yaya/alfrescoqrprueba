@@ -15,7 +15,6 @@
                                 icon="default">
                         <param name="function">onActionSimpleRepoAction</param>
                             <param name="action">barcodeQRCodePdf</param>
-                            <param name="page-no">1</param>
                             <param name="successMessage">alfresco.doclib.action.barcodeQRCodePdf.msg.success</param>
                             <param name="failureMessage">alfresco.doclib.action.barcodeQRCodePdf.msg.failure</param>
                             <evaluator>alfresco.barcodeQRCodePdf.evaluator.checkPDFFileType</evaluator>
