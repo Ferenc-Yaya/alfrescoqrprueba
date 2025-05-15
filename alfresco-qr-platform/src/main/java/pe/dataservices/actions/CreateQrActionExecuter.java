@@ -1,4 +1,4 @@
-package pe.dataservices.platformsample.actions;
+package pe.dataservices.actions;
 
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Image;
@@ -26,8 +26,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class BarcodeQRCodePdfActionExecuter extends ActionExecuterAbstractBase {
-    private static Log logger = LogFactory.getLog(BarcodeQRCodePdfActionExecuter.class);
+public class CreateQrActionExecuter extends ActionExecuterAbstractBase {
+    private static Log logger = LogFactory.getLog(CreateQrActionExecuter.class);
     private ServiceRegistry serviceRegistry;
 
     public void setServiceRegistry(ServiceRegistry serviceRegistry) {

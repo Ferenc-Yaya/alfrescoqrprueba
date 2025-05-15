@@ -20,13 +20,13 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-    <bean id="barcodeQRCodePdf" class="pe.dataservices.platformsample.actions.BarcodeQRCodePdfActionExecuter" parent="action-executer">
+    <bean id="createQR" class="pe.dataservices.actions.CreateQrActionExecuter" parent="action-executer">
         <property name="serviceRegistry">
             <ref bean="ServiceRegistry" />
         </property>
     </bean>
 
-    <bean id="createMetadataPdf" class="pe.dataservices.platformsample.actions.CreateMetadataPdfActionExecuter" parent="action-executer">
+    <bean id="createPdf" class="pe.dataservices.actions.CreatePdfActionExecuter" parent="action-executer">
         <property name="serviceRegistry">
             <ref bean="ServiceRegistry" />
         </property>

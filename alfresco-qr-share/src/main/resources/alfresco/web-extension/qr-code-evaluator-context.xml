@@ -3,6 +3,6 @@
 
 <beans>
     <!-- Registration of the PDF file type evaluator -->
-    <bean id="alfresco.barcodeQRCodePdf.evaluator.checkPDFFileType"
-          class="pe.dataservices.share.evaluator.CheckPDFFileTypeEvaluator" />
+    <bean id="alfresco.createQR.evaluator.PdfEvaluator"
+          class="pe.dataservices.share.evaluator.PdfEvaluator" />
 </beans>

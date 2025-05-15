@@ -6,18 +6,18 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.alfresco.repo.content.MimetypeMap;
 
-public class CheckPDFFileTypeEvaluator extends BaseEvaluator {
-    private static Log logger = LogFactory.getLog(CheckPDFFileTypeEvaluator.class);
+public class PdfEvaluator extends BaseEvaluator {
+    private static Log logger = LogFactory.getLog(PdfEvaluator.class);
 
     @Override
     public boolean evaluate(JSONObject jsonObject) {
         try {
             String mimetype = getNodeMimetype(jsonObject);
-            logger.debug("CheckPDFFileTypeEvaluator - Evaluando nodo con mimetype: " + mimetype);
+            logger.debug("PdfEvaluator - Evaluando nodo con mimetype: " + mimetype);
 
             return mimetype != null && mimetype.equals(MimetypeMap.MIMETYPE_PDF);
         } catch (Exception e) {
-            logger.error("CheckPDFFileTypeEvaluator - Error al evaluar el tipo de archivo", e);
+            logger.error("PdfEvaluator - Error al evaluar el tipo de archivo", e);
             return false;
         }
     }

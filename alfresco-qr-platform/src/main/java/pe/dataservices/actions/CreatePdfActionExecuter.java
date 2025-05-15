@@ -1,4 +1,4 @@
-package pe.dataservices.platformsample.actions;
+package pe.dataservices.actions;
 
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.PdfPCell;
@@ -21,8 +21,8 @@ import java.io.Serializable;
 import java.util.*;
 import java.util.List;
 
-public class CreateMetadataPdfActionExecuter extends ActionExecuterAbstractBase {
-    private static Log logger = LogFactory.getLog(CreateMetadataPdfActionExecuter.class);
+public class CreatePdfActionExecuter extends ActionExecuterAbstractBase {
+    private static Log logger = LogFactory.getLog(CreatePdfActionExecuter.class);
     private ServiceRegistry serviceRegistry;
 
     public void setServiceRegistry(ServiceRegistry serviceRegistry) {

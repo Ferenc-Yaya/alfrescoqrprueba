@@ -418,45 +418,41 @@
 
     <config evaluator="string-compare" condition="DocLibActions">
         <actions>
-            <action id="barcodeQRCodePdf"
+            <action id="createQR"
                     type="javascript"
-                    label="alfresco.doclib.action.barcodeQRCodePdf.label"
+                    label="alfresco.doclib.action.createQR.label"
                     icon="default">
                 <param name="function">onActionSimpleRepoAction</param>
-                <param name="action">barcodeQRCodePdf</param>
-                <param name="successMessage">alfresco.doclib.action.barcodeQRCodePdf.msg.success</param>
-                <param name="failureMessage">alfresco.doclib.action.barcodeQRCodePdf.msg.failure</param>
-                <evaluator>alfresco.barcodeQRCodePdf.evaluator.checkPDFFileType</evaluator>
+                <param name="action">createQR</param>
+                <param name="successMessage">alfresco.doclib.action.createQR.msg.success</param>
+                <param name="failureMessage">alfresco.doclib.action.createQR.msg.failure</param>
+                <evaluator>alfresco.createQR.evaluator.checkPDFFileType</evaluator>
             </action>
-            <action id="document-createMetadataPdf"
+            <action id="createPdf"
                     type="javascript"
-                    label="alfresco.doclib.action.createMetadataPdf.label"
+                    label="alfresco.doclib.action.createPdf.label"
                     icon="default">
                 <param name="function">onActionSimpleRepoAction</param>
-                <param name="action">createMetadataPdf</param>
-                <param name="successMessage">alfresco.doclib.action.createMetadataPdf.msg.success</param>
-                <param name="failureMessage">alfresco.doclib.action.createMetadataPdf.msg.failure</param>
+                <param name="action">createPdf</param>
+                <param name="successMessage">alfresco.doclib.action.createPdf.msg.success</param>
+                <param name="failureMessage">alfresco.doclib.action.createPdf.msg.failure</param>
             </action>
         </actions>
-    </config>
-
-
-    <config evaluator="string-compare" condition="DocLibActions">
         <actionGroups>
             <actionGroup id="document-browse">
-                <action index="400" id="barcodeQRCodePdf" />
+                <action index="400" id="createQR" />
             </actionGroup>
             <actionGroup id="document-details">
-                <action index="400" id="barcodeQRCodePdf" />
+                <action index="400" id="createQR" />
             </actionGroup>
             <actionGroup id="document-selected">
-                <action index="400" id="barcodeQRCodePdf" />
+                <action index="400" id="createQR" />
             </actionGroup>
             <actionGroup id="document-browse">
-                <action index="410" id="document-createMetadataPdf" />
+                <action index="410" id="createPdf" />
             </actionGroup>
             <actionGroup id="document-details">
-                <action index="410" id="document-createMetadataPdf" />
+                <action index="410" id="createPdf" />
             </actionGroup>
         </actionGroups>
     </config>
