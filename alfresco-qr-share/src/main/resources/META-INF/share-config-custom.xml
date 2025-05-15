@@ -426,7 +426,7 @@
                 <param name="action">createQR</param>
                 <param name="successMessage">alfresco.doclib.action.createQR.msg.success</param>
                 <param name="failureMessage">alfresco.doclib.action.createQR.msg.failure</param>
-                <evaluator>alfresco.createQR.evaluator.checkPDFFileType</evaluator>
+                <evaluator>alfresco.createQR.evaluator.pdfEvaluator</evaluator>
             </action>
             <action id="createPdf"
                     type="javascript"
