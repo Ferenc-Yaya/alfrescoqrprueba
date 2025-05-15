@@ -47,9 +47,12 @@ public class BarcodeQRCodePdfActionExecuter extends ActionExecuterAbstractBase {
         }
 
         Map<QName, Serializable> props = serviceRegistry.getNodeService().getProperties(actionedUponNodeRef);
-        String qrCodeString = new String();
+        StringBuilder qrCode = new StringBuilder();
         for (Entry<QName, Serializable> entry : props.entrySet()){
-            qrCodeString += entry.getKey().getLocalName()+" : "+entry.getValue()+"\n";
+            qrCode.append(entry.getKey().getLocalName())
+                        .append(" : ")
+                        .append(entry.getValue())
+                        .append("\n");
         }
         ContentWriter writer = serviceRegistry.getContentService().getWriter(actionedUponNodeRef,
                 ContentModel.PROP_CONTENT, true);
@@ -61,7 +64,7 @@ public class BarcodeQRCodePdfActionExecuter extends ActionExecuterAbstractBase {
             int pageNo = 1;
             PdfContentByte over = stamper.getOverContent(pageNo);
 
-            BarcodeQRCode barcodeQRCode = new BarcodeQRCode(qrCodeString, 1, 1, null);
+            BarcodeQRCode barcodeQRCode = new BarcodeQRCode(qrCode.toString(), 1, 1, null);
             Image qrcodeImage = barcodeQRCode.getImage();
             qrcodeImage.setAbsolutePosition(10,10);
             over.addImage(qrcodeImage);

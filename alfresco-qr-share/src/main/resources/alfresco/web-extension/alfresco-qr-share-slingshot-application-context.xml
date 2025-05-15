@@ -19,7 +19,6 @@
       <property name="resourceBundles">
          <list>
             <value>alfresco.web-extension.messages.alfresco-qr-share</value>
-            <value>alfresco.web-extension.messages.qr-code-actions</value>
          </list>
       </property>
    </bean>
