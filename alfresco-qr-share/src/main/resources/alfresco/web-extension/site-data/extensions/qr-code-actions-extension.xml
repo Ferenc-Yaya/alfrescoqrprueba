@@ -5,15 +5,13 @@
             <version>1.0</version>
             <auto-deploy>true</auto-deploy>
             <configurations>
-
                 <config evaluator="string-compare" condition="DocLibActions">
                     <actions>
-
                         <action id="document-barcodeQRCode"
                                 type="javascript"
                                 label="alfresco.doclib.action.barcodeQRCodePdf.label"
                                 icon="default">
-                        <param name="function">onActionSimpleRepoAction</param>
+                            <param name="function">onActionSimpleRepoAction</param>
                             <param name="action">barcodeQRCodePdf</param>
                             <param name="successMessage">alfresco.doclib.action.barcodeQRCodePdf.msg.success</param>
                             <param name="failureMessage">alfresco.doclib.action.barcodeQRCodePdf.msg.failure</param>
